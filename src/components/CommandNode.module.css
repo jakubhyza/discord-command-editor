@@ -1,0 +1,21 @@
+.CommandNode
+{
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.CommandNode:hover
+{
+	background: #36393F;
+}
+.Command
+{
+	color: white;
+	font-weight: bold;
+}
+.Description
+{
+	width: 100%;
+	display: block;
+	font-size: 0.8em;
+}
