@@ -51,8 +51,8 @@ class CommandNode extends Component {
 				</div>
 				{
 					this.state.showModal &&
-					<Modal close={this.closeModal}>
-						<CommandProperties command={this.props.command} />
+					<Modal>
+						<CommandProperties command={this.props.command} closeModal={this.closeModal} onChange={this.props.onChange} />
 					</Modal>
 				}
 			</div>

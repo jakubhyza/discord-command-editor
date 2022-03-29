@@ -9,13 +9,17 @@ class CommandEditor extends Component {
 		commands: testData
 	}
 
+	handleChange = () => {
+		this.forceUpdate();
+	}
+
 	render() {
 		return (
 			<div>
 			<div className={style.CommandEditor}>
 				{
 					this.state.commands.filter(x=>(x.type ?? 1) === 1).map((command,index)=>(
-						<CommandNode key={index} command={command} />
+						<CommandNode key={index} command={command} onChange={this.handleChange} />
 					))
 				}
 			</div>
