@@ -14,7 +14,7 @@ class CommandEditor extends Component {
 			<div>
 			<div className={style.CommandEditor}>
 				{
-					this.state.commands.map((command,index)=>(
+					this.state.commands.filter(x=>(x.type ?? 1) === 1).map((command,index)=>(
 						<CommandNode key={index} command={command} />
 					))
 				}
