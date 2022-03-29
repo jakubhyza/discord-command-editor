@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import style from './CommandNode.module.css';
 import propTypes from 'prop-types';
 import Modal from '../Modal';
+import CommandProperties from './CommandProperties';
 
 /*
 
@@ -51,7 +52,7 @@ class CommandNode extends Component {
 				{
 					this.state.showModal &&
 					<Modal close={this.closeModal}>
-						Modal content
+						<CommandProperties command={this.props.command} />
 					</Modal>
 				}
 			</div>
