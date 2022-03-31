@@ -25,10 +25,23 @@ class CommandNode extends Component {
 		});
 	}
 
-	closeModal = () => {
+	closeModal = (e) => {
+		if (e !== undefined)
+			e.preventDefault();
+
 		this.setState({
 			showModal: false
 		});
+	}
+
+	remove = (e) => {
+		if (e !== undefined)
+			e.preventDefault();
+			
+		if (window.confirm("Are you sure you want to delete `" + this.props.command.name + "` command?"))
+		{
+			this.props.remove(this.props.command);
+		}
 	}
 
 	render() {
@@ -52,7 +65,7 @@ class CommandNode extends Component {
 				{
 					this.state.showModal &&
 					<Modal>
-						<CommandProperties command={this.props.command} closeModal={this.closeModal} onChange={this.props.onChange} />
+						<CommandProperties command={this.props.command} closeModal={this.closeModal} onChange={this.props.onChange} delete={this.remove} />
 					</Modal>
 				}
 			</div>
