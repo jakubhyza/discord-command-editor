@@ -28,6 +28,21 @@ h2 {
   border-bottom: 1px solid #42454A;
 }
 
+/* 
+ * Error line
+ */
+
+.error-line {
+  background: rgba(237,66,69,.1);
+	border: 2px solid rgba(237,66,69,.5);
+	margin: 20px 0;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 22px;
+}
+
 /*
  * Discord input style
  */

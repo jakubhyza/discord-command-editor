@@ -7,11 +7,12 @@ import NewCommandNode from './NewCommandNode';
 class CommandEditor extends Component {
 
 	state = {
-		commands: testData
+		commands: testData,
+		error: null
 	}
 
 	handleChange = () => {
-		this.forceUpdate();
+		this.validateConfig();
 	}
 
 	newCommand = command => {
@@ -30,9 +31,32 @@ class CommandEditor extends Component {
 		});
 	}
 
+	validateConfig = () => {
+		let error = null;
+
+		this.state.commands.forEach(command=>{
+			// Two commands cannot have the same name
+			let names = this.state.commands.filter(x=>x.name === command.name);
+			if (names.length > 1)
+			{
+				error = `Two commands cannot have the same name: ${command.name}`
+			}
+		})
+
+		this.setState({
+			error: error
+		});
+	}
+
 	render() {
 		return (
 			<div>
+				{
+					this.state.error != null &&
+					<div className="error-line">
+						<b>{this.state.error}</b>
+					</div>
+				}
 				<div className={style.CommandEditor}>
 					{
 						this.state.commands.filter(x=>(x.type ?? 1) === 1).map((command,index)=>(

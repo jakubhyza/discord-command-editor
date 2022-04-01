@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import CommandOption from "./CommandOption";
 
 class CommandProperties extends Component
 {
@@ -31,9 +32,16 @@ class CommandProperties extends Component
                 <h2>Edit Command</h2>
                 <label>Command name</label>
                 <input type="text" name="name" placeholder="1 - 32 letters, no spaces" value={this.props.command.name} onChange={this.handlePropertyChange} pattern={'^[\\w-]{1,32}$'} maxLength={32} minLength={1} autoComplete={"off"} required />
-                <label>description</label>
-
+                
+                <label>Description</label>
                 <textarea name="description" placeholder="1 - 100 characters" onChange={this.handlePropertyChange} minLength={1} maxLength={100} autoComplete={"off"} data-singleline={true} required value={this.props.command.description} />
+
+                <label>Options</label>
+                {
+                    (this.props.command.options ?? []).map((option, index) => (
+                        <CommandOption key={index} option={option} />
+                    ))
+                }
 
                 <input className="float-right" type={'submit'} value={'Okay'} />
                 {

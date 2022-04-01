@@ -4,14 +4,12 @@ import propTypes from 'prop-types';
 import Modal from '../Modal';
 import CommandProperties from './CommandProperties';
 
-/*
 
-Application Command Types
-CHAT_INPUT = 1
-USER       = 2
-MESSAGE    = 3
-
-*/
+const CommandType = {
+	CHAT_INPUT: 1,
+	USER: 2,
+	MESSAGE: 3
+}
 
 class CommandNode extends Component {
 
@@ -37,9 +35,10 @@ class CommandNode extends Component {
 	remove = (e) => {
 		if (e !== undefined)
 			e.preventDefault();
-			
+
 		if (window.confirm("Are you sure you want to delete `" + this.props.command.name + "` command?"))
 		{
+			this.closeModal();
 			this.props.remove(this.props.command);
 		}
 	}
@@ -49,15 +48,15 @@ class CommandNode extends Component {
 			<div>
 				<div className={style.CommandNode} onClick={this.showModal}>
 					{
-						(this.props.command.type ?? 1) === 1 && 
+						(this.props.command.type ?? CommandType.CHAT_INPUT) === CommandType.CHAT_INPUT && 
 						<span className={style.Command}>{'/' + this.props.command.name}</span>
 					}
 					{
-						this.props.command.type === 2 &&
+						this.props.command.type === CommandType.USER &&
 						<span>user{'>'} <span className={style.Command}>{this.props.command.name}</span></span>
 					}
 					{
-						this.props.command.type === 3 &&
+						this.props.command.type === CommandType.MESSAGE &&
 						<span>msg{'>'} <span className={style.Command}>{this.props.command.name}</span></span>
 					}
 					<span className={style.Description}>{this.props.command.description}</span>
