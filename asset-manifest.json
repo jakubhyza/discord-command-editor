@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/discord-command-editor/static/css/main.93843e4b.css",
-    "main.js": "/discord-command-editor/static/js/main.8975dfdc.js",
+    "main.css": "/discord-command-editor/static/css/main.139bc1f1.css",
+    "main.js": "/discord-command-editor/static/js/main.ead95c00.js",
     "static/js/787.2a3aaf81.chunk.js": "/discord-command-editor/static/js/787.2a3aaf81.chunk.js",
     "index.html": "/discord-command-editor/index.html",
-    "main.93843e4b.css.map": "/discord-command-editor/static/css/main.93843e4b.css.map",
-    "main.8975dfdc.js.map": "/discord-command-editor/static/js/main.8975dfdc.js.map",
+    "main.139bc1f1.css.map": "/discord-command-editor/static/css/main.139bc1f1.css.map",
+    "main.ead95c00.js.map": "/discord-command-editor/static/js/main.ead95c00.js.map",
     "787.2a3aaf81.chunk.js.map": "/discord-command-editor/static/js/787.2a3aaf81.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.93843e4b.css",
-    "static/js/main.8975dfdc.js"
+    "static/css/main.139bc1f1.css",
+    "static/js/main.ead95c00.js"
   ]
 }
