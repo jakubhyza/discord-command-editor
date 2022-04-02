@@ -16,11 +16,23 @@
 	color: #ED4245;
 }
 
+.Editor {
+	background: #2F3136;
+	margin: 0.5em 0;
+	padding: 1em;
+	border-radius: 5px;
+}
+
+.Editor input,.Editor textarea,.Editor select {
+	background: #222428;
+}
+
 .Editor .Name {
 	display: inline-block;
-	width: 50%;
+	width: calc(50% - 3px);
+	margin-right: 6px;
 }
 .Editor .Type {
 	display: inline-block;
-	width: 50%;
+	width: calc(50% - 3px);
 }

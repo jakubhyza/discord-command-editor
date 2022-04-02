@@ -66,12 +66,9 @@ class CommandOption extends Component {
 		{
 			return (
 				<div className={style.Editor}>
-					<div className='error-line'>
-						Option editor is not fully implemented yet.
-					</div>
 					<div className={style.Name}>
 						<label>Option Name</label>
-						<input placeholder='1 - 32 letters, np spaces' type="text" name="name" value={this.props.option.name ?? ""} onChange={this.handleChange} minLength={1} maxLength={32} pattern="^[-_\p{L}\p{N}\p{sc=Deva}\p{sc=Thai}]{1,32}$" required />
+						<input placeholder='1 - 32 letters, no spaces' type="text" name="name" value={this.props.option.name ?? ""} onChange={this.handleChange} minLength={1} maxLength={32} pattern="^[-_\p{L}\p{N}\p{sc=Deva}\p{sc=Thai}]{1,32}$" required />
 					</div>
 					<div className={style.Type}>
 						<label>Option Type</label>
@@ -85,6 +82,7 @@ class CommandOption extends Component {
 					</div>
 					<div className={style.Description}>
 						<label>Option Description</label>
+						<textarea placeholder='1 - 100 characters' type="text" name="description" value={this.props.option.description ?? ""} onChange={this.handleChange} minLength={1} maxLength={100} required />
 					</div>
 					<div className={style.Required}>
 
