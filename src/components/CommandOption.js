@@ -27,6 +27,20 @@ class CommandOption extends Component {
 		});
 	}
 
+	handleChange = (e) => {
+		let dataType = e.target.getAttribute('data-type');
+		if (dataType === 'int')
+		{
+			this.props.option[e.target.name] = parseInt(e.target.value);
+		}
+		else
+		{
+			this.props.option[e.target.name] = e.target.value;
+		}
+
+		this.props.onChange(this.props.option);
+	}
+
 	render() {
 		if (!this.state.editMode)
 		{
@@ -52,7 +66,29 @@ class CommandOption extends Component {
 		{
 			return (
 				<div className={style.Editor}>
-					Editor for type {Object.keys(CommandOptionType).find(key=>CommandOptionType[key] === this.props.option.type )  } is not implemented yet.
+					<div className='error-line'>
+						Option editor is not fully implemented yet.
+					</div>
+					<div className={style.Name}>
+						<label>Option Name</label>
+						<input placeholder='1 - 32 letters, np spaces' type="text" name="name" value={this.props.option.name ?? ""} onChange={this.handleChange} minLength={1} maxLength={32} pattern="^[-_\p{L}\p{N}\p{sc=Deva}\p{sc=Thai}]{1,32}$" required />
+					</div>
+					<div className={style.Type}>
+						<label>Option Type</label>
+						<select name="type" value={this.props.option.type ?? ""} data-type="int" onChange={this.handleChange} required>
+						{
+							Object.keys(CommandOptionType).map(key=>(
+								<option key={key} value={CommandOptionType[key]}>{key}</option>
+							))
+						}
+						</select>
+					</div>
+					<div className={style.Description}>
+						<label>Option Description</label>
+					</div>
+					<div className={style.Required}>
+
+					</div>
 				</div>
 			);
 		}

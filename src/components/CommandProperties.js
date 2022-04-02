@@ -31,7 +31,7 @@ class CommandProperties extends Component
             <form onSubmit={this.handleSubmit}>
                 <h2>Edit Command</h2>
                 <label>Command name</label>
-                <input type="text" name="name" placeholder="1 - 32 letters, no spaces" value={this.props.command.name} onChange={this.handlePropertyChange} pattern={'^[\\w-]{1,32}$'} maxLength={32} minLength={1} autoComplete={"off"} required />
+                <input type="text" name="name" placeholder="1 - 32 letters, no spaces" value={this.props.command.name} onChange={this.handlePropertyChange} pattern={'^[-_\\p{L}\\p{N}\\p{sc=Deva}\\p{sc=Thai}]{1,32}$'} maxLength={32} minLength={1} autoComplete={"off"} required />
                 
                 <label>Description</label>
                 <textarea name="description" placeholder="1 - 100 characters" onChange={this.handlePropertyChange} minLength={1} maxLength={100} autoComplete={"off"} data-singleline={true} required value={this.props.command.description} />
@@ -39,7 +39,7 @@ class CommandProperties extends Component
                 <label>Options</label>
                 {
                     (this.props.command.options ?? []).map((option, index) => (
-                        <CommandOption key={index} option={option} />
+                        <CommandOption key={index} option={option} onChange={this.props.onChange}  />
                     ))
                 }
 

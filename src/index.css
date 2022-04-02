@@ -56,7 +56,7 @@ label {
   color: #B9BBB2;
 }
 
-input,textarea {
+input,textarea, select {
   background: #303339;
   display: block;
   border: 1px solid #222428;
@@ -70,12 +70,12 @@ input,textarea {
   resize: none;
 }
 
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: #00AFF4;
 }
 
-input:invalid, textarea:invalid {
+input:invalid, textarea:invalid, select:invalid {
   outline: none;
   border-color: #ED4245;
 }

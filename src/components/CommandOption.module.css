@@ -15,3 +15,12 @@
 	float: right;
 	color: #ED4245;
 }
+
+.Editor .Name {
+	display: inline-block;
+	width: 50%;
+}
+.Editor .Type {
+	display: inline-block;
+	width: 50%;
+}
